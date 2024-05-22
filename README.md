@@ -14,7 +14,11 @@ With these packages installed, configure using CMake. I'm using Ninja, but any g
 cmake -B build -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo
 ```
 
-For Windows, use this instead: `cmake -B build/ -S . -DCMAKE_TOOLCHAIN_FILE="vcpkg/scripts/buildsystems/vcpkg.cmake" -DCMAKE_BUILD_TYPE=RelWithDebInfo`
+For Windows, use this instead:
+```
+cmake -B build/ -S . -DCMAKE_TOOLCHAIN_FILE="%VCPKG_ROOT%/scripts/buildsystems/vcpkg.cmake" -DCMAKE_BUILD_TYPE=RelWithDebInfo
+```
+(this assumes you have followed the vcpkg installation steps and have set the environment variables as shown [here](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started?pivots=shell-cmd)).
 
 Depending on your RAM, you may need to use `-j <number>` to control the number of jobs when building.
 
